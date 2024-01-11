@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1700071139 source:c:\users\ethan ward\onedrive\documents\github saved work\c-programs\sdl-programs\sdlew\sdltester.c
+	<SDL2/SDL.h>
+	<stdio.h>
+	<stdlib.h>
+
