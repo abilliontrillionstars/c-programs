@@ -10,7 +10,7 @@ void main()
 {
   char board[BOARD_WIDTH][BOARD_HEIGHT];
   init_board(board, 300);
-
+ 
   char input[5];
   strcpy(input, "wah."); // just in case our user is so unlucky that the program would quit itself
   while(input != "q" && input != "quit" && input != "exit")
