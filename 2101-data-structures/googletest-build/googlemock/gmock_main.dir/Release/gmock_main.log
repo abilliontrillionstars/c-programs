@@ -1,0 +1,7 @@
+﻿  Building Custom Rule C:/Users/Ethan Ward/OneDrive/Documents/c-programs/2101-data-structures/googletest-main/googlemock/CMakeLists.txt
+  gtest-all.cc
+  gmock-all.cc
+  gmock_main.cc
+  Generating Code...
+     Creating library C:/Users/Ethan Ward/OneDrive/Documents/c-programs/2101-data-structures/googletest-build/lib/Release/gmock_main.lib and object C:/Users/Ethan Ward/OneDrive/Documents/c-programs/2101-data-structures/googletest-build/lib/Release/gmock_main.exp
+  gmock_main.vcxproj -> C:\Users\Ethan Ward\OneDrive\Documents\c-programs\2101-data-structures\googletest-build\bin\Release\gmock_main.dll

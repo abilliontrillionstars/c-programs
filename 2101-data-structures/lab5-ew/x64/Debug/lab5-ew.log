@@ -1,0 +1,33 @@
+﻿  main.cpp
+C:\Users\Ethan Ward\OneDrive\Documents\c-programs\2101-data-structures\lab5-ew\linked_list_ew.h(147,22): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  C:\Users\Ethan Ward\OneDrive\Documents\c-programs\2101-data-structures\lab5-ew\linked_list_ew.h(147,22):
+  the template instantiation context (the oldest one first) is
+  	C:\Users\Ethan Ward\OneDrive\Documents\c-programs\2101-data-structures\lab5-ew\main.cpp(9,28):
+  	see reference to class template instantiation 'ssuds::LinkedList<int>' being compiled
+  	C:\Users\Ethan Ward\OneDrive\Documents\c-programs\2101-data-structures\lab5-ew\linked_list_ew.h(144,24):
+  	while compiling class template member function 'std::ostream &ssuds::operator <<(std::ostream &,const ssuds::LinkedList<int> &)'
+  		C:\Users\Ethan Ward\OneDrive\Documents\c-programs\2101-data-structures\lab5-ew\main.cpp(20,15):
+  		see the first reference to 'ssuds::operator <<' in 'main'
+  
+C:\Users\Ethan Ward\OneDrive\Documents\c-programs\2101-data-structures\lab5-ew\linked_list_ew.h(150,11): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main.cpp')
+  
+C:\Users\Ethan Ward\OneDrive\Documents\c-programs\2101-data-structures\lab5-ew\linked_list_ew.h(100,16): error C2275: 'std::out_of_range': expected an expression instead of a type
+  (compiling source file 'main.cpp')
+  C:\Users\Ethan Ward\OneDrive\Documents\c-programs\2101-data-structures\lab5-ew\linked_list_ew.h(100,16):
+  the template instantiation context (the oldest one first) is
+  	C:\Users\Ethan Ward\OneDrive\Documents\c-programs\2101-data-structures\lab5-ew\linked_list_ew.h(97,8):
+  	while compiling class template member function 'void ssuds::LinkedList<int>::insert(unsigned int,const T &)'
+          with
+          [
+              T=int
+          ]
+  		C:\Users\Ethan Ward\OneDrive\Documents\c-programs\2101-data-structures\lab5-ew\main.cpp(18,17):
+  		see the first reference to 'ssuds::LinkedList<int>::insert' in 'main'
+  
+C:\Users\Ethan Ward\OneDrive\Documents\c-programs\2101-data-structures\lab5-ew\linked_list_ew.h(107,22): error C2440: 'initializing': cannot convert from 'ssuds::LinkedList<int> *' to 'ssuds::LinkedList<int>::Node *'
+  (compiling source file 'main.cpp')
+  C:\Users\Ethan Ward\OneDrive\Documents\c-programs\2101-data-structures\lab5-ew\linked_list_ew.h(107,22):
+  Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or parenthesized function-style cast
+  

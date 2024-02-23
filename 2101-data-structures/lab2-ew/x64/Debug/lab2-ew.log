@@ -1,0 +1,17 @@
+﻿  main_2.cpp
+C:\Users\Ethan Ward\OneDrive\Documents\c-programs\2101-data-structures\lab2-ew\array_list_ew_2.h(160,14): warning C4018: '<': signed/unsigned mismatch
+  (compiling source file 'main_2.cpp')
+  C:\Users\Ethan Ward\OneDrive\Documents\c-programs\2101-data-structures\lab2-ew\array_list_ew_2.h(160,14):
+  the template instantiation context (the oldest one first) is
+  	C:\Users\Ethan Ward\OneDrive\Documents\c-programs\2101-data-structures\lab2-ew\main_2.cpp(10,26):
+  	see reference to class template instantiation 'ssuds::ArrayList<float>' being compiled
+  	C:\Users\Ethan Ward\OneDrive\Documents\c-programs\2101-data-structures\lab2-ew\array_list_ew_2.h(158,6):
+  	while compiling class template member function 'T &ssuds::ArrayList<T>::operator [](int) const'
+          with
+          [
+              T=float
+          ]
+  		C:\Users\Ethan Ward\OneDrive\Documents\c-programs\2101-data-structures\lab2-ew\main_2.cpp(16,43):
+  		see the first reference to 'ssuds::ArrayList<float>::operator []' in 'main'
+  
+  lab2-ew.vcxproj -> C:\Users\Ethan Ward\OneDrive\Documents\c-programs\2101-data-structures\lab2-ew\x64\Debug\lab2-ew.exe
