@@ -15,7 +15,9 @@ int main()
     llist.append(1);
     llist.append(0);
     llist.prepend(-1);
-    llist.insert(3, 7);
+
+    for (int num : llist)
+        std::cout << num;
 
     std::cout << llist;
 }

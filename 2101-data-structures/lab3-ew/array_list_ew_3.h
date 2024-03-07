@@ -61,7 +61,7 @@ namespace ssuds
 
 		// ITERATOR METHODS
 		ArrayListIterator& begin() { return ArrayListIterator(this, 0); }
-		ArrayListIterator& end() { return ArrayListIterator(this, this->size()); }
+		ArrayListIterator& end() { return ArrayListIterator(this, iSize); }
 
 		/// <summary>adds an element at the end of the list</summary>
 		void append(const T& element)

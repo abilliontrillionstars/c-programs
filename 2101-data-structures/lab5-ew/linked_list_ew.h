@@ -12,9 +12,49 @@ namespace ssuds
 		class Node
 		{
 		public:
+			/// <summary>the node's value</summary>
 			T iData;
-			Node* ahead;
-			Node* behind;
+			/// <summary>points to the nodes ahead and behind this one</summary>
+			Node* ahead,behind;
+		};
+	public:
+		class LinkedListIterator
+		{
+		protected:
+			/// <summary>reaches to this iterator's list</summary>
+			LinkedList& longArmOfTheLaw;
+			/// <summary>represents the it's 'index' to the list</summary>
+			unsigned int iOffset;
+			/// <summary>points to the currently targeted node</summary>
+			Node* iNode;
+		public:
+			/// <summary>standard consturctor (now takes a node pointer!)</summary>
+			LinkedList::LinkedListIterator(Node* initNode, LinkedList& parent, unsigned int aOffset) : iNode(initNode), longArmOfTheLaw(parent), iOffset(aOffset) {}
+
+			/// <summary>getter for the iterator's index</summary>
+			unsigned int position() { return iOffset; }
+			/// <summary>returns the data this iterator currently points to</summary>
+			T& operator*() { return longArmOfTheLaw[iOffset]; }
+			/// <summary></summary>
+			void operator++()
+			{ 
+				iOffset++;
+				iNode = iNode->ahead;
+			}
+			void operator++(int usused)
+			{
+				iOffset++;
+				iNode = iNode->ahead;
+			}
+
+			/// <summary></summary>
+			int operator==(const LinkedListIterator& other) const
+			{
+				return longArmOfTheLaw == other.longArmOfTheLaw 
+					&& iOffset == other.iOffset;
+			}
+			/// <summary></summary>
+			int operator!=(const LinkedListIterator& other) const { return !(this == other); }
 		};
 
 		/// <summary>points to the FIRST element in the list.</summary>
@@ -29,16 +69,9 @@ namespace ssuds
 	// [-<=>-]
 	public:
 		/// <summary>no-method constructor, with the special : initializers</summary>
-		LinkedList() : headButLikeNotInTheHTMLSenseBecauseThisIsntTheOOPSEClass(nullptr), tail(nullptr), iSize(0)
-		{
-			// empty, on purpose
-		}
-
+		LinkedList() : headButLikeNotInTheHTMLSenseBecauseThisIsntTheOOPSEClass(nullptr), tail(nullptr), iSize(0) {}
 		/// <summary>no-method destructor</summary>
-		~LinkedList()
-		{
-
-		}
+		~LinkedList() { clear(); }
 
 
 	// [-<=>-]
@@ -46,6 +79,9 @@ namespace ssuds
 	// [-<=>-]
 		/// <summary>standard size getter</summary>
 		unsigned int size() const { return iSize; }
+
+		LinkedListIterator& begin() { return LinkedListIterator(this->headButLikeNotInTheHTMLSenseBecauseThisIsntTheOOPSEClass, this, 0); }
+		LinkedListIterator& end() { return LinkedListIterator(this->tail, this, iSize); }
 
 		/// <summary>adds an element to the end of the list</summary>
 		void append(const T& new_val)
@@ -92,35 +128,19 @@ namespace ssuds
 			iSize++;
 		}
 
-
-		/// <summary>inserts an element at the specified index</summary>
-		void insert(unsigned int index, const T& val)
+		/// <summary>deletes all the nodes in the list</summary>
+		void clear()
 		{
-			if (index > iSize)
-				throw std::out_of_range("bad insert() index");
-			else if (index == iSize)
-				append(val);
-			else if (!index)
-				prepend(val);
-			else
+			Node* target = headButLikeNotInTheHTMLSenseBecauseThisIsntTheOOPSEClass;
+			for (int i = 0; i < iSize - 1; i++)
 			{
-				Node* nodeBefore = &this[index - 1];
-
-				// ... Make a new node (like append)
-				Node* nnode = new Node;
-				nnode->iData = val;
-
-				nnode->behind = nodeBefore;		  // a.
-				nnode->ahead = nodeBefore->ahead; // d.
-				nodeBefore->ahead->behind = nnode;// c.
-				nodeBefore->ahead = nnode;		  // b.
+				target = target->ahead;
+				delete target->behind;
 			}
-			iSize++;
-		}
-
-		void remove(unsigned int index)
-		{
+			delete target;
 			
+			headButLikeNotInTheHTMLSenseBecauseThisIsntTheOOPSEClass = nullptr;
+			tail = nullptr;
 		}
 
 
