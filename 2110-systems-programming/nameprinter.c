@@ -1,10 +1,9 @@
-// second program. prints the same information, but without any #include statements.
-
 // Name: Ethan Ward
 // Class: Systems Programming   Section: ETEC 2110-51
-// Assignment: Lab 1, part 3
+// Assignment: Lab 1, part 1
 
-int printf (const char *__format, ...);
+//first C program! prints your name and favorite quote.
+#include <stdio.h>
 
 main()
 {

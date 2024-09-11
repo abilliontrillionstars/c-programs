@@ -7,8 +7,8 @@
 // Only #defines are allowed here in this program.
 // You should fill them in.
 #define NAME "Ethan Ward"
-#define QUOTE "'You are not the exception to recovery.'"
-#define ATTRIBUTION "   -Johnny Montilla\n"
+#define QUOTE "\"We have a saying in our field: \"Magic isn't\". It doesn't \"just work,\" it doesn't respond to your thoughts, you can't just throw fireballs or create a roast dinner from thin air.\""
+#define ATTRIBUTION "   -qntm, \"Ra\"\n"
 #define begin {
 #define end }
 #define write printf
@@ -17,10 +17,10 @@
 
 main()
 begin
- write("first");
- write("line");
- writeln(" ");
- writeln(NAME);
- writeln(QUOTE);
- writeln(ATTRIBUTION);
+  write("first");
+  write("line");
+  writeln(" ");
+  writeln(NAME);
+  writeln(QUOTE);
+  writeln(ATTRIBUTION);
 end
