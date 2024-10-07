@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 
-void crypt(char*, int, char*);
+void crypt2(char* message, int length, char* key);
 
 
 int main()
@@ -17,19 +17,19 @@ int main()
   char key[1000];
   scanf("%999s", key);
 
-  crypt(message, 0, key);
+  crypt2(message, 0, key);
   printf("\n\n%s", message);
 
-  crypt(message, 0, key);
+  crypt2(message, 0, key);
   printf("\n%s", message);
   return 0;
 }
-void crypt( char * message, int length, char * key)
+
+
+void crypt2(char* message, int length, char* key)
 {
- // code to encrypt the message using XOR with the key string.
- for(int i = 0; i < strlen(message); i++)
- {
-   message[i] ^= key[i % strlen(key)];
- }
+  // code to encrypt the message using XOR with the key string.
+  for(int i=0; i < strlen(message); i++)
+    message[i] ^= key[i % strlen(key)];
 }
 

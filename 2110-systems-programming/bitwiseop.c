@@ -29,13 +29,10 @@ void printBinary(unsigned char ch)
 {
     // shift the greater bits all the way to the right and print them one by one.
     for(int i = 0; i < 8; i++)
-    {
-        printf("%d", ((ch >> 7-i) & 00000001)); // the & separates the rest of the digits
-    }
+        printf("%d", ((ch >> 7-i) & 1)); // the & separates the rest of the digits
 }
 void printHex(unsigned char ch)
 {
     char hexdigits[17] = "0123456789ABCDEF"; // 'dict' of hex digits
-    printf("0x%c", hexdigits[(ch >> 4)]); // index the string by the upper and lower nibbles.
-    printf("%c", hexdigits[(ch & 0x0F)]);
+    printf("0x%c%c", hexdigits[(ch >> 4)], hexdigits[(ch & 0x0F)]); // index the string by the upper and lower nibbles.
 }
