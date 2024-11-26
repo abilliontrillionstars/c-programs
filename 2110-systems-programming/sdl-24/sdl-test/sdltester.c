@@ -20,9 +20,9 @@ int main(int argc, char *argv[])
   else
   {
     //Create window
-    window = SDL_CreateWindow("", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
+    window = SDL_CreateWindow("why does it only work sometimes", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
     if(!window)
-      printf("Window could not be created! SDL_Error: %s\n", SDL_GetError());
+      printf( "Window could not be created! SDL_Error: %s\n", SDL_GetError() );
     else
     {
       screenSurface = SDL_GetWindowSurface(window); //Get window surface
@@ -32,19 +32,21 @@ int main(int argc, char *argv[])
   }
 
   Uint8* keys = SDL_GetKeyboardState(NULL);
-  SDL_Event event;
+  SDL_Event* event;
   while(1)
   {
     keys = SDL_GetKeyboardState(NULL);
-    SDL_PollEvent(&event);
-    
-    if(event.type == SDL_QUIT) break;
+    SDL_PollEvent(event);
 
-    if(keys[SDL_SCANCODE_ESCAPE]) break;
+    if(event->type == SDL_QUIT) 
+      break;
+
+    if(keys[SDL_SCANCODE_ESCAPE])
+      break;
 
     if(keys[SDL_SCANCODE_R])
     {
-      SDL_FillRect(screenSurface, NULL, SDL_MapRGB(screenSurface->format, rand()%255, rand()%255, rand()%255)); //Fill the surface
+      SDL_FillRect(screenSurface, NULL, SDL_MapRGB( screenSurface->format, rand() %255, rand() %255, rand() %255)); //Fill the surface
       SDL_UpdateWindowSurface(window); //Update the surface
     }
 
