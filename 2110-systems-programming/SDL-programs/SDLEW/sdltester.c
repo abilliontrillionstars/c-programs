@@ -31,23 +31,20 @@ int main(int argc, char *argv[])
     }
   }
 
-  Uint8* keys = SDL_GetKeyboardState(NULL);
+  const Uint8* keys = SDL_GetKeyboardState(NULL);
   SDL_Event event;
   while(1)
   {
-    keys = SDL_GetKeyboardState(NULL);
     SDL_PollEvent(&event);
-    
-    if(event.type == SDL_QUIT) break;
 
-    if(keys[SDL_SCANCODE_ESCAPE]) break;
+    if(keys[SDL_SCANCODE_ESCAPE] || event.type == SDL_QUIT) 
+      break;
 
-    if(keys[SDL_SCANCODE_R])
+    if(event.type == SDL_KEYDOWN && keys[SDL_SCANCODE_R])
     {
       SDL_FillRect(screenSurface, NULL, SDL_MapRGB(screenSurface->format, rand()%255, rand()%255, rand()%255)); //Fill the surface
       SDL_UpdateWindowSurface(window); //Update the surface
     }
-
   }
 
 
