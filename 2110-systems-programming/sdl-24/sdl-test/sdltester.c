@@ -1,5 +1,6 @@
 //Ethan Ward 301040
 // Lab 6: SDL Graphics
+
 #include <SDL2/SDL.h>
 #include <stdio.h>
 #include <stdlib.h>

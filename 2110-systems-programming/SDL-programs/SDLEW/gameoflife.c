@@ -2,25 +2,15 @@
 //Class: ETEC 2110
 //Assignment: Lab 5 - Game Of Life
 #include <stdio.h>
-#include <string.h>
+#include <time.h>
 #include <stdlib.h>
-#include "game_of_life.h"
+#include "gameoflife.h"
 
-/*
-void main()
+void init_board(int board[BOARD_WIDTH][BOARD_HEIGHT], int num_alive)
 {
-  int board[BOARD_WIDTH][BOARD_HEIGHT];
-  init_board(board, 150);
-  display_board(board);
-
-  printf("\ntest: cell 0,0 has %d neighbors", num_neighbors(board, 0, 0));
-}*/
-
-int * init_board(int board[BOARD_WIDTH][BOARD_HEIGHT], int num_alive)
-{
-  srand(0);
-  for(int i = 0; i < BOARD_HEIGHT; i++)
-    for(int j = 0; j < BOARD_WIDTH; j++)
+  srand(time(0));
+  for(int i = 0; i < BOARD_WIDTH; i++)
+    for(int j = 0; j < BOARD_HEIGHT; j++)
       board[i][j] = 0;
   // fill the board with dead cells
 
@@ -28,9 +18,9 @@ int * init_board(int board[BOARD_WIDTH][BOARD_HEIGHT], int num_alive)
   {
     int x = rand()%BOARD_HEIGHT;
     int y = rand()%BOARD_WIDTH;
-    if(!board[y][x])
+    if(!board[x][y])
     {
-      board[y][x] = 1;
+      board[x][y] = 1;
       num_alive--;
     }
   }
@@ -39,13 +29,9 @@ int * init_board(int board[BOARD_WIDTH][BOARD_HEIGHT], int num_alive)
 void display_board(int board[BOARD_WIDTH][BOARD_HEIGHT])
 {
   for(int i = 0; i < BOARD_HEIGHT; i++)
-  {
     for(int j = 0; j < BOARD_WIDTH; j++)
-    {
       printf("%c", board[i][j]);
-    }
     printf("\n");
-  }
 }
 
 int num_neighbors(int board[BOARD_WIDTH][BOARD_HEIGHT], int x, int y)
@@ -83,7 +69,7 @@ int next_state(int board[BOARD_WIDTH][BOARD_HEIGHT], int x, int y)
     return 0;
 }
 
-int * next_generation(int board[BOARD_WIDTH][BOARD_HEIGHT])
+void next_generation(int board[BOARD_WIDTH][BOARD_HEIGHT])
 {
   char proto_board[BOARD_WIDTH][BOARD_HEIGHT];
 

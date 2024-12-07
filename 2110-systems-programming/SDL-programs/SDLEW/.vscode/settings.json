@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "sdl.h": "c"
+        "sdl.h": "c",
+        "gameoflife.h": "c",
+        "gameoflife.c": "c"
     }
 }
