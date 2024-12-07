@@ -10,15 +10,16 @@
 
 void init_board(int board[BOARD_WIDTH][BOARD_HEIGHT], int num_alive)
 {
+  int x,y;
   srand((int)time(0));
   // fill the board with dead cells
-  for(int i = 0; i < BOARD_HEIGHT; i++)
-    for(int j = 0; j < BOARD_WIDTH; j++)
-      board[i][j] = 0;
+  for(y=0; y<BOARD_HEIGHT; y++)
+    for(x=0; x<BOARD_WIDTH; x++)
+      board[x][y] = 0;
   while(num_alive)
   {
-    int x = rand()%BOARD_HEIGHT;
-    int y = rand()%BOARD_WIDTH;
+    x = rand()%BOARD_WIDTH;
+    y = rand()%BOARD_HEIGHT;
     if(!board[x][y])
     {
       board[x][y] = 1;
@@ -31,9 +32,10 @@ void display_board(int board[BOARD_WIDTH][BOARD_HEIGHT])
 {
   for(int i=0; i<BOARD_HEIGHT; i++)
   {
+    printf(":");
     for(int j=0; j<BOARD_WIDTH; j++)
-      printf("%c", board[i][j] ? 'X':'-');
-    printf("\n");
+      printf("%c", board[j][i] ? 'X':'-');
+    printf(":\n");
   }
 }
 
