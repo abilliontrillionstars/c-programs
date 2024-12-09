@@ -2,15 +2,6 @@
 #include "blockhead.h"
 
 
-struct BLOCKHEAD_NODE
-{
-    float x,y; // position
-    float dx,dy; // movement component
-    long color;
-    int size;
-    struct BLOCKHEAD_NODE* next;
-};
-
 void addBlockHeadToList(struct BLOCKHEAD_NODE** blockhead_list, struct BLOCKHEAD_NODE blockhead)
 {
     //note that we pass by value so we can offload the mallocking/copying here
@@ -18,14 +9,17 @@ void addBlockHeadToList(struct BLOCKHEAD_NODE** blockhead_list, struct BLOCKHEAD
     *node = blockhead;
     // go to the tail of the linkedlist if we're not there already
     while((*blockhead_list)->next != NULL)
-        blockhead_list = (*blockhead_list)->next;
+        *blockhead_list = (*blockhead_list)->next;
     // *now* set the tail's next
-    
-    
+    (*blockhead_list)->next = node;
 }
-void removeBlockHeadFromList( struct BLOCKHEAD_NODE** blockhead_list, int index)
+void removeBlockHeadFromList(struct BLOCKHEAD_NODE** blockhead_list, const int index)
 {
-    //this function will remove a blockhead node from the list at the position indicated by index.
+    for(int i=0; i<index; i++)
+        if((*blockhead_list)->next == NULL)
+            return;
+        else
+           *blockhead_list = (*blockhead_list)->next;    
 }
 void freeBlockHeadList( struct BLOCKHEAD_NODE** blockhead_list)
 {

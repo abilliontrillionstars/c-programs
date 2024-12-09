@@ -20,6 +20,12 @@ void main()
   window_init(window, screen);
   
   head = malloc(sizeof(struct BLOCKHEAD_NODE**));
+  for(int i=0; i<10; i++)
+  {
+    struct BLOCKHEAD_NODE bh = {};
+    addBlockHeadToList(head, bh);
+  }
+
 
   const Uint8* keys = SDL_GetKeyboardState(NULL);
   SDL_Event e;

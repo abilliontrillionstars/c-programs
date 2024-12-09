@@ -2,6 +2,7 @@
     "files.associations": {
         "sdl.h": "c",
         "gameoflife.h": "c",
-        "gameoflife.c": "c"
+        "gameoflife.c": "c",
+        "blockhead.h": "c"
     }
 }
